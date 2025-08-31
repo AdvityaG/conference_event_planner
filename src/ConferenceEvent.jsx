@@ -83,39 +83,38 @@ const ConferenceEvent = () => {
 
     const ItemsDisplay = ({ items }) => {
       console.log(items);
-    return 
-    <>
-      <div className="display_box1">
-        {items.length === 0 && <p>No items selected</p>}
-          <table className="table_item_data">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Unit Cost</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.name}</td>
-                  <td>${item.cost}</td>
-                  <td>
-                    {item.type === "meals" || item.numberOfPeople
-                    ? ` For ${numberOfPeople} people`
-                    : item.quantity}
-                  </td>
-                  <td>{item.type === "meals" || item.numberOfPeople
-                    ? `${item.cost * numberOfPeople}`
-                    : `${item.cost * item.quantity}`}
-                  </td>
+      return <>
+        <div className="display_box1">
+          {items.length === 0 && <p>No items selected</p>}
+            <table className="table_item_data">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Unit Cost</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </>
+              </thead>
+              <tbody>
+                {items.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.name}</td>
+                    <td>${item.cost}</td>
+                    <td>
+                      {item.type === "meals" || item.numberOfPeople
+                      ? ` For ${numberOfPeople} people`
+                      : item.quantity}
+                    </td>
+                    <td>{item.type === "meals" || item.numberOfPeople
+                      ? `${item.cost * numberOfPeople}`
+                      : `${item.cost * item.quantity}`}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
     };
 
     const calculateTotalCost = (section) => {
@@ -162,7 +161,7 @@ const ConferenceEvent = () => {
     return (
         <>
             <navbar className="navbar_event_conference">
-                <div className="company_logo">Conference Expense Planner</div>
+                <div className="company_logo" >Conference Expense Planner</div>
                 <div className="left_navbar">
                     <div className="nav_links">
                         <a href="#venue" onClick={() => navigateToProducts("#venue")} >Venue</a>
